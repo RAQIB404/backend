@@ -1,8 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { db } = require('../db/db');
-const { categories } = require('../db/schema/categories');
-
+import { db } from '../db/db.js';
+import  categories  from '../db/schema/categories.js';
 // GET all categories
 router.get('/', async (req, res) => {
   try {
@@ -63,4 +62,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

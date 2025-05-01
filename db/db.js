@@ -1,13 +1,15 @@
-// db/db.js
-const { drizzle } = require('drizzle-orm/node-postgres');
-const { Pool } = require('pg');
-const { users } = require('./schema/users');
-const { categories } = require('./schema/categories');
-const { products } = require('./schema/products');
-const { orders } = require('./schema/orders');        
-const { orderItems } = require('./schema/orderItems');        
-const { payments } = require('./schema/payments');
-const { address } = require('./schema/address');
+// db/db.js (using ESM)
+import dotenv from 'dotenv';
+dotenv.config();
+import { drizzle } from 'drizzle-orm/node-postgres';
+import { Pool } from 'pg';
+import  users  from './schema/users.js';
+import  categories  from './schema/categories.js';
+import  products  from './schema/products.js';
+import  orders  from './schema/orders.js';
+import  orderItems  from './schema/orderItems.js';
+import  payments  from './schema/payments.js';
+import  address  from './schema/address.js';
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -17,16 +19,14 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-const db = drizzle(pool, {
+export const db = drizzle(pool, {
   schema: {
-    users: users,
-    categories: categories,
-    products: products,  
-    orders: orders,
-    orderItems: orderItems,  
-    payments: payments,
-    address: address,
+    users,
+    categories,
+    products,
+    orders,
+    orderItems,
+    payments,
+    address,
   },
 });
-
-module.exports = { db };

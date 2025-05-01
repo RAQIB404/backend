@@ -1,6 +1,5 @@
 // db/schema/products.js
-const { pgTable, serial, varchar, text, numeric, integer } = require('drizzle-orm/pg-core');
-
+import { pgTable, serial, varchar, text, numeric, integer } from 'drizzle-orm/pg-core';
 const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 100 }).notNull(),
@@ -9,4 +8,4 @@ const products = pgTable('products', {
   categoryId: integer('category_id').notNull(),
 });
 
-module.exports = { products };
+export default products;

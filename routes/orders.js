@@ -1,8 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { db } = require('../db/db');
-const { orders } = require('../db/schema/orders');
-
+import { db } from '../db/db.js';
+import  orders  from '../db/schema/orders.js';
 // GET all orders
 router.get('/', async (req, res) => {
   try {
@@ -66,4 +65,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

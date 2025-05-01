@@ -1,6 +1,5 @@
 // db/schema/orderItems.js
-const { pgTable, serial, integer, numeric } = require('drizzle-orm/pg-core');
-
+import { pgTable, serial, integer, numeric } from 'drizzle-orm/pg-core';
 const orderItems = pgTable('order_items', {
   id: serial('id').primaryKey(),
   orderId: integer('order_id').notNull(),
@@ -9,4 +8,4 @@ const orderItems = pgTable('order_items', {
   price: numeric('price', { precision: 10, scale: 2 }).notNull(),
 });
 
-module.exports = { orderItems };
+export default orderItems;

@@ -1,8 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { db } = require('../db/db');
-const { users } = require('../db/schema/users');
-
+import { db } from '../db/db.js';
+import  users  from '../db/schema/users.js';
 // GET all users
 router.get('/', async (req, res) => {
   try {
@@ -62,4 +61,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

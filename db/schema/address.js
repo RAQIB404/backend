@@ -1,5 +1,4 @@
-const {pgTable, serial, integer, varchar} = require('drizzle-orm/pg-core');
-
+import { pgTable, serial, integer, varchar } from 'drizzle-orm/pg-core';
 const address = pgTable('address', {
     id: serial('id').primaryKey(),
     userId: integer('user_id').notNull(),
@@ -10,4 +9,4 @@ const address = pgTable('address', {
     zipCode:varchar('zip_code',{length : 20}).notNull(),
 })
 
-module.exports = { address };
+export default address;

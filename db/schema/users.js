@@ -1,4 +1,4 @@
-const { pgTable, serial, varchar, timestamp } = require('drizzle-orm/pg-core');
+import { pgTable, serial, varchar, timestamp } from 'drizzle-orm/pg-core';
 
 const users = pgTable('users', {
   id: serial('id').primaryKey(),
@@ -7,4 +7,4 @@ const users = pgTable('users', {
   createdAt: timestamp('created_at').defaultNow(),
 });
 
-module.exports = { users };
+export default users;

@@ -1,6 +1,5 @@
 // db/schema/payments.js
-const { pgTable, serial, integer, numeric, timestamp, varchar } = require('drizzle-orm/pg-core');
-
+import { pgTable, serial, integer, numeric, varchar, timestamp } from 'drizzle-orm/pg-core';
 const payments = pgTable('payments', {
   id: serial('id').primaryKey(),
   orderId: integer('order_id').notNull(),
@@ -9,4 +8,4 @@ const payments = pgTable('payments', {
   paidAt: timestamp('paid_at').defaultNow(),
 });
 
-module.exports = { payments };
+export default payments;
